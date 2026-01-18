@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotlight Game Rules - Blaze Streaming</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .rules-list {
+            list-style: none;
+        }
+
+        .rules-list li {
+            padding: 12px 0 12px 40px;
+            position: relative;
+            font-size: 1.05em;
+        }
+
+        .rules-list li:before {
+            content: "🎯";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        .points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .point-card {
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s;
+        }
+
+        .point-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .point-card .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .point-card .value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .point-card .label {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .prize-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .prize-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .prize-box ul {
+            list-style: none;
+        }
+
+        .prize-box li {
+            padding: 8px 0;
+            font-size: 1.05em;
+        }
+
+        .prize-box li:before {
+            content: "🏆 ";
+            margin-right: 8px;
+        }
+
+        .commands {
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .commands h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .command {
+            background: white;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
+            font-family: 'Courier New', monospace;
+        }
+
+        .command strong {
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .footer {
+            background: #f7f7f7;
+            padding: 25px 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 25px 20px;
+            }
+
+            .points-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 Spotlight Game</h1>
+            <p class="subtitle">Compete for the spotlight and earn rewards on Blaze!</p>
+            <div>spotlight_bot is not affiliated with the blaze team. It was created by jt_squared2 as a way to bring more attention and support to channels that may not otherwise get it.</div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>📖 How It Works</h2>
+                <ul class="rules-list">
+                    <li>A random active stream receives the spotlight</li>
+                    <li>Keep streaming for <strong>30 minutes</strong> or lose the spotlight</li>
+                    <li>If you gain <strong>+10 viewers</strong> during your spotlight, it transfers to another random stream</li>
+                    <li>After 30 minutes, the spotlight is "unlocked" and can be stolen</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>💎 Stealing the Spotlight (after 30 min):</strong>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li><strong>Donate 200 BLAZE tokens</strong> to spotlight_bot → spotlight moves to a random active stream</li>
+                        <li><strong>Subscribe to spotlight_bot</strong> → spotlight moves to YOUR channel</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📊 Earning Points</h2>
+                <p style="margin-bottom: 20px;">Points for follows, subs, and donations are only earned <strong>only while you have the spotlight</strong>:</p>
+
+                <div class="points-grid">
+                    <div class="point-card">
+                        <div class="icon">⏱️</div>
+                        <div class="value">2 pts</div>
+                        <div class="label">Per minute with spotlight</div>
+                    </div>
+                    <div class="point-card">
+                        <div class="icon">👤</div>
+                        <div class="value">50 pts</div>
+                        <div class="label">Per new follower</div>
+                    </div>
+                    <div class="point-card">
+                        <div class="icon">⭐</div>
+                        <div class="value">10 pts</div>
+                        <div class="label">Per subscription</div>
+                    </div>
+                    <div class="point-card">
+                        <div class="icon">💰</div>
+                        <div class="value">2 pts</div>
+                        <div class="label">Per 100 BLAZE donated</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🏆 Prizes</h2>
+                <div class="prize-box">
+                    <h3>Winners Announced: Saturday at 12:00 PM EST</h3>
+                    <ul>
+                        <li><strong>1st Place (Most Points):</strong> 200 votes + 25% of accumulated backstage passes</li>
+                        <li><strong>2nd Place (Runner-Up):</strong> 25% of accumulated backstage passes</li>
+                        <li><strong>OBEEZ NFT Holder Bonus:</strong> Winner gets an additional 50 votes!</li>
+                    </ul>
+                </div>
+                <p style="margin-top: 15px; color: #666;">A new game starts at the beginning of every epoch (Sunday 12:00 AM UTC)</p>
+            </div>
+
+            <div class="section">
+                <h2>💬 Chat Commands</h2>
+                <div class="commands">
+                    <h3>Available in spotlight_bot's channel:</h3>
+                    <div class="command">
+                        <strong>!spotlight</strong> - Check current spotlight holder and status
+                    </div>
+                    <div class="command">
+                        <strong>!leaderboard</strong> - View top 5 players and their points
+                    </div>
+                    <div class="command">
+                        <strong>!points</strong> - Check your current points and rank
+                    </div>
+                    <div class="command">
+                        <strong>!spotlighthelp</strong> - Get a link to these rules
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>💡 Strategy Tips</h2>
+                <ul class="rules-list">
+                    <li><strong>Stream consistently</strong> - You earn 2 points every minute you hold the spotlight</li>
+                    <li><strong>Engage your audience</strong> - Followers and subs during spotlight give big point boosts</li>
+                    <li><strong>Encourage donations</strong> - Donations to your channel (while in spotlight) earn points</li>
+                    <li><strong>Watch the clock</strong> - After 30 minutes, someone can steal the spotlight!</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Created by jt_squared2</strong></p>
+            <p style="margin-top: 10px;">Join the competition on <a href="https://blaze.stream" style="color: #667eea; text-decoration: none; font-weight: bold;">Blaze.stream</a></p>
+        </div>
+    </div>
+</body>
+</html>
